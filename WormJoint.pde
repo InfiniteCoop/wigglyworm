@@ -70,11 +70,12 @@ class WormJoint {
     y += vy;
     a += da;
 
-//    green += random(-8, 8);
-//    blue += random(-8, 8);
-
     green = constrain(green, 100, 240);
     blue = constrain(blue, 100, 240);
+
+    //shrink joints after he eats a bonus square
+    r *= 0.95;
+    if (r < 4) r = 4;
+    }
   }
-}
 

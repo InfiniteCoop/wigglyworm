@@ -51,6 +51,8 @@ AudioPlayer bloop1, bloop2, bloop3;
 AudioPlayer pop1;
 AudioPlayer soundtrack;
 
+BeatDetect beat;
+
 PImage speakerOn;
 PImage speakerOff;
 
@@ -78,12 +80,12 @@ void setup()
 
   pop1 = minim.loadFile("audio/pop1.mp3");
 
-  gain = -40;
-  soundtrack = minim.loadFile("audio/wigglyWormTrack.mp3");
+  gain = -10;
+  soundtrack = minim.loadFile("audio/pretending.mp3");
   soundtrack.loop();
   soundtrack.setGain(gain);
+  beat = new BeatDetect();
   
-
   speakerOn = loadImage("speakerOn.png");
   speakerOff = loadImage("speakerOff.png");
 
@@ -126,6 +128,8 @@ void draw()
 
     //draw score, high score text in lower corners
     scoreText();
+    
+beatDetect();
 
     break;
 

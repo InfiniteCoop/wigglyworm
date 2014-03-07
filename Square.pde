@@ -32,7 +32,7 @@ class Square {
   void draw()
   {
     if (!on) return;
-    fill(c, timer); 
+    fill(c, timer);
     noStroke();
     rectMode(CENTER);
     rect(x, y, w, w);
@@ -46,53 +46,52 @@ class Square {
       return;
     }
 
-    //move squares
-    x += vx;
-    y += vy;
-    
-    
-    //decay transparency
-    timer -= dt;
-    timerBonus -= dtBonus;
+  //move squares
+  x += vx;
+  y += vy;
 
 
-    //reverse square vy when it hits floor/ceiling
-    if (y > height-w || y < w)
-    {
-      vy = -vy;
-    }
+  //decay transparency
+  timer -= dt;
+  timerBonus -= dtBonus;
 
-    // When square exits screen, re-initialize
-    if (x < 0 || x > width+601 || timer < 0) {
-      on = false;
-    }
+
+  //reverse square vy when it hits floor/ceiling
+  if (y > height-w || y < w)
+  {
+    vy = -vy;
   }
 
-  //check for square collisions
-  void bounce() {
-    for (int i = 0; i < squares.length; i ++) {
-      // if this is myself, continue
-      if (this == squares[i]) continue;
-      // distance between two squares
-      float d = dist(x, y, squares[i].x, squares[i].y);
-      // minimum distance between two squares
-      float md = w+squares[i].w;
-      // if I collide with one of them
-      if (d < md) {
-        // push back in the opposite direction
-        float dx = (x - squares[i].x)/d;
-        float dy = (y - squares[i].y)/d;
-        // check if perfectly overlapping
-        if (dx == 0 && dy == 0) { 
-          dx = random(-1, 1); 
-          dy = random(-1, 1);
-        }
-        // compute the speed to add
-        float s = min(10, spring*(md-d));
-        vx += dx*s;
-        vy += dy*s;
-      }
-    }
+  // When square exits screen, re-initialize
+  if (x < 0 || x > width+601 || timer < 0) {
+    on = false;
   }
 }
 
+//check for square collisions
+void bounce() {
+  for (int i = 0; i < squares.length; i ++) {
+    // if this is myself, continue
+    if (this == squares[i]) continue;
+    // distance between two squares
+    float d = dist(x, y, squares[i].x, squares[i].y);
+    // minimum distance between two squares
+    float md = w+squares[i].w;
+    // if I collide with one of them
+    if (d < md) {
+      // push back in the opposite direction
+      float dx = (x - squares[i].x)/d;
+      float dy = (y - squares[i].y)/d;
+      // check if perfectly overlapping
+      if (dx == 0 && dy == 0) { 
+        dx = random(-1, 1); 
+        dy = random(-1, 1);
+      }
+      // compute the speed to add
+      float s = min(10, spring*(md-d));
+      vx += dx*s;
+      vy += dy*s;
+    }
+  }
+}
+}

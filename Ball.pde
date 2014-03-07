@@ -42,7 +42,8 @@ class Ball {
     if (!on) { 
       if (random(0, 1) < 0.5) initialize(); 
       return;
-    }
+    }  
+    
 
     //move ball
     x += vx;
