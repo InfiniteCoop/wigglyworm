@@ -7,6 +7,8 @@ class Square {
   float timer;   // time left before square disappears
   float timerBonus;  //time left before "BONUS!" message disappears
   float dt;  // extinguishing speed
+  float a; //rotation angle
+  float da; //rotation rate 
   float dtBonus;  //text extinguishing speed
   float spring = 0.05; //ball springiness (for collisions)
   boolean on = false;
@@ -27,15 +29,21 @@ class Square {
     timer = 255;
     timerBonus = 0.5;
     dt = random(0.1, 5);
+    a = 0;
+    da = random(-0.5,-0.1);    
   }
 
   void draw()
   {
     if (!on) return;
     fill(c, timer);
+    pushMatrix();
+    translate(x,y);
+    rotate(a);
     noStroke();
     rectMode(CENTER);
-    rect(x, y, w, w);
+    rect(0, 0, w, w);
+    popMatrix();
   }
 
   void update()
@@ -49,6 +57,9 @@ class Square {
   //move squares
   x += vx;
   y += vy;
+  
+  //rotate squares
+  a += da;
 
 
   //decay transparency
