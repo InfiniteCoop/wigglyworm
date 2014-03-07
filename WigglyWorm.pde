@@ -7,6 +7,7 @@
 
 //import sound library here
 import ddf.minim.*;
+import ddf.minim.analysis.*;
 
 //GLOBAL VARAIBLES
 //the three game states
@@ -45,6 +46,7 @@ Ball[] balls = new Ball[100];
 Square[] squares = new Square[8];
 
 Minim minim;
+
 AudioPlayer bloop1, bloop2, bloop3;
 AudioPlayer pop1;
 AudioPlayer soundtrack;
@@ -80,7 +82,7 @@ void setup()
   soundtrack = minim.loadFile("audio/wigglyWormTrack.mp3");
   soundtrack.loop();
   soundtrack.setGain(gain);
-
+  
 
   speakerOn = loadImage("speakerOn.png");
   speakerOff = loadImage("speakerOff.png");
@@ -183,7 +185,7 @@ void keyPressed() {
     else {
       soundtrack.mute();
       bloop1.mute();
-      pop1.unmute();
+      pop1.mute();
     }
     muted = !muted;
   }
