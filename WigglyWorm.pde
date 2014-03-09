@@ -51,6 +51,9 @@ AudioPlayer bloop1, bloop2, bloop3;
 AudioPlayer pop1;
 AudioPlayer soundtrack;
 
+BeatDetect beat;
+BeatListener bl;
+
 PImage speakerOn;
 PImage speakerOff;
 
@@ -73,15 +76,18 @@ void setup()
   //sound initialization
   minim = new Minim(this);
   bloop1 = minim.loadFile("audio/bloop1.mp3");
-  bloop2 = minim.loadFile("audio/bloop2.mp3");
-  bloop3 = minim.loadFile("audio/bloop3.mp3");
+  bloop1.setGain(20);
 
   pop1 = minim.loadFile("audio/pop1.mp3");
+  pop1.setGain(20);
 
-  gain = -40;
-  soundtrack = minim.loadFile("audio/wigglyWormTrack.mp3");
+  soundtrack = minim.loadFile("audio/soundtrack.mp3", 1024);
   soundtrack.loop();
-  soundtrack.setGain(gain);
+  soundtrack.setGain(-10);
+  beat = new BeatDetect(soundtrack.bufferSize(), soundtrack.sampleRate());
+  beat.setSensitivity(8);  
+  
+  bl = new BeatListener(beat, soundtrack);
   
 
   speakerOn = loadImage("speakerOn.png");
@@ -95,14 +101,10 @@ void setup()
 
 void draw()
 {
-  //very slight motion blur
-  rectMode(CORNER);
-  fill(0);
-  rect(0, 0, width, height);
 
-  //sountrack begins quiet, gradually grows louder
+  background(0);
+
   soundtrack.play();
-  gain += 1;
 
   //draw appropriate speaker icon
   soundSpeaker();
@@ -126,6 +128,8 @@ void draw()
 
     //draw score, high score text in lower corners
     scoreText();
+
+    beatDetect();
 
     break;
 
