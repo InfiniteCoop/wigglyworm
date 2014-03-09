@@ -75,15 +75,16 @@ void setup()
   //sound initialization
   minim = new Minim(this);
   bloop1 = minim.loadFile("audio/bloop1.mp3");
+  bloop1.setGain(10);
   bloop2 = minim.loadFile("audio/bloop2.mp3");
   bloop3 = minim.loadFile("audio/bloop3.mp3");
 
   pop1 = minim.loadFile("audio/pop1.mp3");
+  pop1.setGain(10);
 
-  gain = -10;
   soundtrack = minim.loadFile("audio/pretending.mp3");
   soundtrack.loop();
-  soundtrack.setGain(gain);
+  soundtrack.setGain(-10);
   beat = new BeatDetect();
   
   speakerOn = loadImage("speakerOn.png");
