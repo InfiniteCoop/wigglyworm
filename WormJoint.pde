@@ -11,8 +11,8 @@ class WormJoint {
   float red = 50;    //color channels
   float green = 200;
   float blue = 200;
-  float a;
-  float da;
+  float a;      //blue color change
+  float da;    //rate of blue color change
 
   // Initialize a worm joint at rest position (x0,y0)
   WormJoint(float x0, float y0, float r0)

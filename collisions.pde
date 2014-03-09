@@ -33,7 +33,7 @@ void collisions()
         squares[j].w += 20;
         squares[j].timerBonus = 100;
         squares[j].dtBonus = 0.5;
-        fill(squares[j].c, (squares[j].timerBonus));
+        fill((squares[j].timerBonus));
         textAlign(CENTER);
         textFont(font, 45);
         text("+100", (mouseX), (mouseY));
