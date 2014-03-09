@@ -82,7 +82,7 @@ void setup()
   pop1 = minim.loadFile("audio/pop1.mp3");
   pop1.setGain(10);
 
-  soundtrack = minim.loadFile("audio/pretending.mp3");
+  soundtrack = minim.loadFile("audio/eple.mp3");
   soundtrack.loop();
   soundtrack.setGain(-10);
   beat = new BeatDetect();
