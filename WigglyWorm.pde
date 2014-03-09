@@ -1,11 +1,10 @@
-//In this groundbreaking game, the player controls Timmy the tapeworm with the mouse.
-//The longer that Timmy evades the antibiotics, the more points he gains...however, 
+//In this game, the player uses the mouse to contro Timmy the Tapeworm.
+//The longer that Timmy evades the red antibiotics, the more points he gains...however, 
 //the antibiotics gradually multiply and move faster and faster, and Timmy grows longer 
-//and longer, making survival progressively more difficult!
+//and longer, making survival progressively more difficult.
 //Timmy can also snack on green nutrients to gain bonus points.
 
-
-//import sound library here
+//import sound library
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 
@@ -85,8 +84,9 @@ void setup()
   gameOver = minim.loadFile("audio/gameover.mp3");
   gameOver.setGain(-10);
 
-  soundtrack = minim.loadFile("audio/eple.mp3", 1024);
+  soundtrack = minim.loadFile("audio/soundtrack.mp3", 1024);
   soundtrack.setGain(-10);
+  soundtrack.loop();
 
 
   beat = new BeatDetect(soundtrack.bufferSize(), soundtrack.sampleRate());
@@ -199,13 +199,3 @@ void keyPressed() {
     muted = !muted;
   }
 }
-
-void stop()
-{
-  // always close Minim audio classes when you are done with them
-  soundtrack.close();
-  minim.stop();
-  super.stop();
-  
-}
-

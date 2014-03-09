@@ -33,7 +33,7 @@ class Square {
     timerBonus = 0.5;
     dt = random(0.1, 5);
     a = 0;
-    da = random(-0.5, -0.1);    
+    da = random(-0.5, -0.3);    
     aBlue = TWO_PI;
     daBlue = radians(2);
   }
