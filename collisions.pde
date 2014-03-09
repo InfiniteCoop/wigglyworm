@@ -26,12 +26,7 @@ void collisions()
         bloop1.play();
         bloop1.rewind();
 
-<<<<<<< HEAD
-
-        //if there are any collisions, add 100 bonus points, extinguish+reinitialize square, show bonus text
-=======
         //add 100 bonus points, extinguish+reinitialize square, show bonus text
->>>>>>> development
         score += 100;
         squares[j].timer = 100;
         squares[j].dt = 30;

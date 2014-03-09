@@ -85,7 +85,7 @@ void setup()
   soundtrack.loop();
   soundtrack.setGain(-10);
   beat = new BeatDetect(soundtrack.bufferSize(), soundtrack.sampleRate());
-  beat.setSensitivity(8);  
+  beat.setSensitivity(10);  
 
   bl = new BeatListener(beat, soundtrack);
 
