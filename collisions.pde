@@ -11,6 +11,8 @@ void collisions()
         gameState = lost;
 
         //play "game over" sound
+        gameOver.play();
+        gameOver.rewind();
       }
     }
   }

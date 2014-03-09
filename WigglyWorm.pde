@@ -49,6 +49,7 @@ Minim minim;
 
 AudioPlayer bloop1, bloop2, bloop3;
 AudioPlayer pop1;
+AudioPlayer gameOver;
 AudioPlayer soundtrack;
 
 BeatDetect beat;
@@ -81,9 +82,13 @@ void setup()
   pop1 = minim.loadFile("audio/pop1.mp3");
   pop1.setGain(20);
 
-  soundtrack = minim.loadFile("audio/soundtrack.mp3", 1024);
-  soundtrack.loop();
+  gameOver = minim.loadFile("audio/gameover.mp3");
+  gameOver.setGain(-10);
+
+  soundtrack = minim.loadFile("audio/eple.mp3", 1024);
   soundtrack.setGain(-10);
+
+
   beat = new BeatDetect(soundtrack.bufferSize(), soundtrack.sampleRate());
   beat.setSensitivity(10);  
 
@@ -193,5 +198,14 @@ void keyPressed() {
     }
     muted = !muted;
   }
+}
+
+void stop()
+{
+  // always close Minim audio classes when you are done with them
+  soundtrack.close();
+  minim.stop();
+  super.stop();
+  
 }
 
