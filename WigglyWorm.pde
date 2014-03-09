@@ -75,12 +75,12 @@ void setup()
   //sound initialization
   minim = new Minim(this);
   bloop1 = minim.loadFile("audio/bloop1.mp3");
-  bloop1.setGain(10);
+  bloop1.setGain(20);
   bloop2 = minim.loadFile("audio/bloop2.mp3");
   bloop3 = minim.loadFile("audio/bloop3.mp3");
 
   pop1 = minim.loadFile("audio/pop1.mp3");
-  pop1.setGain(10);
+  pop1.setGain(20);
 
   soundtrack = minim.loadFile("audio/eple.mp3");
   soundtrack.loop();
@@ -98,10 +98,8 @@ void setup()
 
 void draw()
 {
-  //very slight motion blur
-  rectMode(CORNER);
-  fill(0);
-  rect(0, 0, width, height);
+
+  background(0);
 
   //sountrack begins quiet, gradually grows louder
   soundtrack.play();
