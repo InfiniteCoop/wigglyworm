@@ -52,6 +52,7 @@ AudioPlayer pop1;
 AudioPlayer soundtrack;
 
 BeatDetect beat;
+BeatListener bl;
 
 PImage speakerOn;
 PImage speakerOff;
@@ -76,17 +77,19 @@ void setup()
   minim = new Minim(this);
   bloop1 = minim.loadFile("audio/bloop1.mp3");
   bloop1.setGain(20);
-  bloop2 = minim.loadFile("audio/bloop2.mp3");
-  bloop3 = minim.loadFile("audio/bloop3.mp3");
 
   pop1 = minim.loadFile("audio/pop1.mp3");
   pop1.setGain(20);
 
-  soundtrack = minim.loadFile("audio/eple.mp3");
+  soundtrack = minim.loadFile("audio/soundtrack.mp3", 1024);
   soundtrack.loop();
   soundtrack.setGain(-10);
-  beat = new BeatDetect();
-  
+  beat = new BeatDetect(soundtrack.bufferSize(), soundtrack.sampleRate());
+  beat.setSensitivity(8);  
+
+  bl = new BeatListener(beat, soundtrack);
+
+
   speakerOn = loadImage("speakerOn.png");
   speakerOff = loadImage("speakerOff.png");
 
@@ -101,9 +104,7 @@ void draw()
 
   background(0);
 
-  //sountrack begins quiet, gradually grows louder
   soundtrack.play();
-  gain += 1;
 
   //draw appropriate speaker icon
   soundSpeaker();
@@ -127,8 +128,8 @@ void draw()
 
     //draw score, high score text in lower corners
     scoreText();
-    
-beatDetect();
+
+    beatDetect();
 
     break;
 
