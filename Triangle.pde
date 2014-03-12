@@ -36,7 +36,7 @@ class Triangle {
   void draw()
   {
     if (!on) return;
-    fill(200, 200, 0, timer);
+    fill(250, 128, 0, timer);
     pushMatrix();
     translate(x, y);
     rotate(a);
