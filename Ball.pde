@@ -6,6 +6,8 @@ class Ball {
   float vMin;
   float vMax;
   color c; //ball color
+  float timer;   //ball transparency
+  float dt;     //rate of transparency change
   float spring = 0.2; //ball springiness (for collisions)
   boolean on = false;
 
@@ -26,13 +28,14 @@ class Ball {
     vr = 1;
     r = vr * random(10, 30);
     c = color(random(100, 255), 0, random(0, 100));
+    timer = 200;
   }
 
   void draw()
   {
     if (!on) return;
     noStroke(); 
-    fill(c, 200);
+    fill(c, timer);
     ellipse(x, y, 2*r, 2*r);
   }
 
