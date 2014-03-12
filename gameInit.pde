@@ -28,7 +28,5 @@ void gameInit()
   }
   
     // Create the explosive bacterial triangle
-  for (int i=0; i<triangles.length; i++) {
-    triangles[i] = new Triangle();
-  }
+    triangle = new Triangle();
 }

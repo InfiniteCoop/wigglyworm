@@ -11,9 +11,12 @@ void drawObjects()
     for (int i=0; i<squares.length; i++) squares[i].bounce();
     
         //Draw and update triangles
-    for (int i=0; i<triangles.length; i++) triangles[i].draw();
-    for (int i=0; i<triangles.length; i++) triangles[i].update();
-    //for (int i=0; i<triangles.length; i++) triangles[i].bounce();
+//    for (int i=0; i<triangles.length; i++) triangles[i].draw();
+//    for (int i=0; i<triangles.length; i++) triangles[i].update();
+
+    //Draw single triangle
+    triangle.draw();
+    triangle.update();
 
 
     //Draw and update wiggly worm

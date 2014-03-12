@@ -30,13 +30,11 @@ void scoreUpdate()
 void addBall() {
   balls[nBalls] = new Ball();
   nBalls++;
-  //println(nBalls);
 }
 
 //create an additional joint every 2000 points
 void addJoint() {
   joints[nJoints] = new WormJoint(mouseX, mouseY, 4);
   nJoints++;
-  //play "upgrade" sound
 }
 

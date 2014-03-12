@@ -45,7 +45,7 @@ Ball[] balls = new Ball[100];
 
 Square[] squares = new Square[8];
 
-Triangle[] triangles = new Triangle[3];
+Triangle triangle = new Triangle();
 
 Minim minim;
 
