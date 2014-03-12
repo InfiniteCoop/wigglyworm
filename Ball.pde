@@ -29,6 +29,7 @@ class Ball {
     r = vr * random(10, 30);
     c = color(random(100, 255), 0, random(0, 100));
     timer = 200;
+    dt = 0;
   }
 
   void draw()
@@ -45,8 +46,9 @@ class Ball {
     if (!on) { 
       if (random(0, 1) < 0.5) initialize(); 
       return;
-    }  
-    
+    }
+
+    timer += dt;  
 
     //move ball
     x += vx;
@@ -61,10 +63,10 @@ class Ball {
     }
 
     // When ball exits screen, re-initialize
-    if (x < 0 ) {
+    if (x < 0 || timer < 20) {
       on = false;
     }
-    
+
     vMin += -0.1;
   }
 
