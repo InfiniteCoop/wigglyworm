@@ -1,3 +1,4 @@
+//global function that handles all collisions
 void collisions()
 {
   //check for collisions between worm and balls
@@ -17,7 +18,7 @@ void collisions()
     }
   }
 
-  //check for collisions between worm head and bonus squares
+  //check for collisions between worm head and visible bonus squares
   for (int j=0; j<squares.length; j++)
   {
     if (dist(mouseX, mouseY, squares[j].x, squares[j].y) <= 20)
@@ -28,18 +29,21 @@ void collisions()
         bloop1.play();
         bloop1.rewind();
 
-        //add 100 bonus points, extinguish+reinitialize square, show bonus text
+        //add 100 bonus points, extinguish+reinitialize square
         score += 100;
         squares[j].timer = 100;
         squares[j].dt = 30;
         squares[j].w += 20;
         squares[j].timerBonus = 100;
         squares[j].dtBonus = 1;
+        
+        // show bonus text
         fill((squares[j].timerBonus));
         textAlign(CENTER);
-        textFont(fontBonus);
+        textFont(fontBonus, 48);
         text("+100!", (mouseX), (mouseY));
 
+        //temporarily swell wormjoints
         for (int i=0; i<nJoints; i++)
         {
           joints[i].r += 1;

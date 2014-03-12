@@ -1,3 +1,5 @@
+//global function to detect soundtrack beat, and make 
+//squares and triangles pulse accordingly
 void beatDetect()
 {
   beat.detect(soundtrack.mix);

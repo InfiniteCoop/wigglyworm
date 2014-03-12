@@ -1,3 +1,4 @@
+//global function responsible for drawing and updating all game objects each frame
 void drawObjects()
 {
       // Draw and update balls
@@ -10,7 +11,7 @@ void drawObjects()
     for (int i=0; i<squares.length; i++) squares[i].update();
     for (int i=0; i<squares.length; i++) squares[i].bounce();
     
-    //Draw and update triangle
+    //Draw and update probiotic triangle
     triangle.draw();
     triangle.update();
 

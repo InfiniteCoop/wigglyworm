@@ -1,3 +1,4 @@
+//a class for the bonus squares. Each square that Timmy consumes grants 100 bonus points.
 class Square {
   float x, y;   // current position
   float vx, vy;  // velocity
@@ -40,9 +41,13 @@ class Square {
 
   void draw()
   {
+    
+    //update color
     blue = 140 * (1+sin(aBlue));
     if (!on) return;
     fill(red, green, blue, timer);
+    
+    //draw squares
     pushMatrix();
     translate(x, y);
     rotate(a);
@@ -91,7 +96,7 @@ class Square {
     }
   }
 
-  //check for square collisions
+  //check for collisions with other squares; rebound, if necessary
   void bounce() {
     for (int i = 0; i < squares.length; i ++) {
       // if this is myself, continue

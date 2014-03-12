@@ -2,7 +2,7 @@
 void gameInit()
 {
 
-  //game begins on menu screen with score of 0
+  //game begins on menu screen with score of 0, 10 balls, 2 worm joints
   gameState = menu;
   score = 0;
   scoreUpdateBalls = 0;
@@ -27,6 +27,6 @@ void gameInit()
     squares[i] = new Square();
   }
   
-    // Create the explosive bacterial triangle
+    // Create the explosive probiotics triangle
     triangle = new Triangle();
 }

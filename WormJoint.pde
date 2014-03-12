@@ -26,8 +26,10 @@ class WormJoint {
 
   void draw()
   {
+    //update color
     blue = 140 * (1+sin(a));
     fill(red, green, blue);
+    
     //draw worm joints
     stroke(red, green, blue); 
     strokeWeight(4);
@@ -53,7 +55,7 @@ class WormJoint {
     line(mouseX-2, mouseY+4, mouseX+2, mouseY+4);
   }
 
-  // Update the spring, with a new center
+  // Update the spring with a new center
   void update(float ncx, float ncy)
   {
     // set the new center
@@ -69,11 +71,11 @@ class WormJoint {
     x += vx; 
     y += vy;
     a += da;
-
+  
     green = constrain(green, 100, 240);
     blue = constrain(blue, 100, 240);
 
-    //shrink joints after he eats a bonus square
+    //re-shrink joints after he eats a bonus square
     r *= 0.95;
     if (r < 4) r = 4;
     }

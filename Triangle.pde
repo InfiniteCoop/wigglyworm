@@ -1,15 +1,16 @@
+//a class for the probiotic triangle power-up
 class Triangle {
   float x, y;   // current position
   float vx, vy;  // velocity
   float l;   //triangle side length
   float timer;   // time left before triangle disappears
-  float timerBonus;  //time left before "KAPLOW!" message disappears
-  float dt;  // extinguishing speed
+  float timerBonus;  //time left before bonus message disappears
+  float dt;  // triangle transparency change speed
   float a; //rotation angle
   float da; //rotation rate 
   float dtBonus;  //text extinguishing speed
   boolean on = false;
-  boolean explode = false;
+  boolean explode = false;  //switched on/off by collision with worm head
 
   Triangle() {
   }
@@ -46,7 +47,7 @@ class Triangle {
 
   void update()
   {
-    // initialize if necessary
+    // initialize, if necessary
     if (!on) { 
       if (random(0, 1) < 0.5) initialize(); 
       return;
@@ -70,6 +71,7 @@ class Triangle {
       on = false;
     }
 
+    //test to see if triangle has collided with worm head (see collisions() function)
     if (explode == true)
     {
       //trigger triangle appearance change
@@ -82,6 +84,8 @@ class Triangle {
       {
         if (dist(triangle.x, triangle.y, balls[i].x, balls[i].y) < triangle.l*2 && triangle.timer > 40)
         {
+
+          //play pop sound
           pop2.play();
           pop2.rewind();
 
@@ -91,7 +95,7 @@ class Triangle {
           //print message
           fill((triangle.timerBonus));
           textAlign(CENTER);
-          textFont(fontBonus);
+          textFont(fontBonus, 48);
           text("+100!", balls[i].x, balls[i].y);
 
           //update score

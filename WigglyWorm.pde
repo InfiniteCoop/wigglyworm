@@ -87,14 +87,15 @@ void setup()
   frameRate(30);
   noStroke();
 
-  //font initialization
+  //initialize the different fonts
   font = createFont("ArialRoundedMTBold.vlw", 20);
   fontTitle = createFont("BirchStd.vlw", 20);
-  fontColor = color(0, random(100, 255), random(100, 240));  
   fontBonus = createFont("BadaBoomBB-48.vlw", 48);
+
+  fontColor = color(0, random(100, 255), random(100, 240));  
   textAlign(CENTER);
 
-  //sound initialization
+  //initialize all the sound effects and background music
   minim = new Minim(this);
 
   bloop1 = minim.loadFile("audio/bloop1.mp3");
@@ -116,10 +117,9 @@ void setup()
   soundtrack.setGain(-10);
   soundtrack.loop();
 
-
+  //new beat tracker
   beat = new BeatDetect(soundtrack.bufferSize(), soundtrack.sampleRate());
   beat.setSensitivity(10);  
-
   bl = new BeatListener(beat, soundtrack);
 
   //load sound on/off icons
@@ -127,7 +127,7 @@ void setup()
   speakerOff = loadImage("speakerOff.png");
 
 
-  //initialize the game (function follows)
+  //initialize the game (see global function)
   gameInit();
 }
 
@@ -136,6 +136,7 @@ void draw()
 
   background(0);
 
+  //begin the soundtrack
   soundtrack.play();
 
   //draw appropriate speaker icon
@@ -161,6 +162,7 @@ void draw()
     //draw score, high score text in lower corners
     scoreText();
 
+    //listen for beat, and make squares, triangle pulse w/ kick and snare
     beatDetect();
 
     break;

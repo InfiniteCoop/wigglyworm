@@ -9,9 +9,7 @@ void gameOverText()
     text("You killed Timmy!", (width/2), (height/2) - 40);
     fill(255);
     textFont(font, 20);
-    text("Click to restart game", width/2, height/2);
-    textFont(font, 14);
-    text("(Hint: Timmy doesn't like sudden movements)", width/2, height/2 + 100);
+    text("Click anywhere to restart game", width/2, height/2);
 
     //display score in left corner
     textAlign(LEFT);

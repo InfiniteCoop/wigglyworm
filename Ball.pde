@@ -1,3 +1,5 @@
+//this class is for the bad antibiotic balls. If the worm collides with a ball,
+//the game automaticaly ends.
 class Ball {
   float x, y;   // current position
   float vx, vy;  // velocity
@@ -6,8 +8,6 @@ class Ball {
   float vMin;
   float vMax;
   color c; //ball color
-  float timer;   //ball transparency
-  float dt;     //rate of transparency change
   float spring = 0.2; //ball springiness (for collisions)
   boolean on = false;
 
@@ -28,15 +28,13 @@ class Ball {
     vr = 1;
     r = vr * random(10, 30);
     c = color(random(100, 255), 0, random(0, 100));
-    timer = 200;
-    dt = 0;
   }
 
   void draw()
   {
     if (!on) return;
     noStroke(); 
-    fill(c, timer);
+    fill(c, 200);
     ellipse(x, y, 2*r, 2*r);
   }
 
@@ -48,13 +46,9 @@ class Ball {
       return;
     }
 
-    timer += dt;  
-
     //move ball
     x += vx;
     y += vy;
-    //increase ball velocity multiplier 
-    //increase ball radius multiplier
 
     //reverse ball vy when it hits floor/ceiling
     if (y > height-r || y < r)
@@ -70,7 +64,7 @@ class Ball {
     vMin += -0.1;
   }
 
-  //check for ball collisions
+  //check for collisions with other balls
   void bounce() {
     for (int i = 0; i < nBalls; i ++) {
       // if this is myself, continue
