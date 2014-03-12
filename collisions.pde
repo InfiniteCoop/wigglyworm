@@ -51,19 +51,6 @@ void collisions()
   //check for collisions between balls and explosive triangles
   if (dist(mouseX, mouseY, triangle.x, triangle.y) <= 40)
   {
-    //trigger explosive behavior
-    //    explode();
-
-    for (int i=0; i<nBalls; i++)
-    {
-      if (dist(balls[i].x + balls[i].r, balls[i].y + balls[i].r, triangle.x, triangle.y) <= 100)
-      {
-        balls[i].timer = 0;
-        balls[i].r = 0;
-        triangle.timer = 0;
-      }
-    }
-
     //play bloop sound
     bloop1.play();
     bloop1.rewind();
@@ -77,7 +64,20 @@ void collisions()
     textAlign(CENTER);
     textFont(font, 45);
     text("+100", (mouseX), (mouseY));
+    
+        //trigger explosive behavior
+    for (int i=0; i<nBalls; i++)
+    {
+      if (dist(balls[i].x + balls[i].r, balls[i].y + balls[i].r, triangle.x, triangle.y) <= 100)
+      {
+        balls[i].timer = 0;
+        balls[i].r = 0;
+        triangle.timer = 0;
+      }
+    }
 
+
+    //temporarily swell worm joints
     for (int i=0; i<nJoints; i++)
     {
       joints[i].r += 1;
