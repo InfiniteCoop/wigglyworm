@@ -1,7 +1,7 @@
 class Square {
   float x, y;   // current position
   float vx, vy;  // velocity
-  float w;   //witdh
+  float w;   //width
   float timer;   // time left before square disappears
   float timerBonus;  //time left before "BONUS!" message disappears
   float dt;  // extinguishing speed
@@ -29,8 +29,9 @@ class Square {
     vy = random(-2, 2);
     w = random(10, 15);
     timer = 255;
-    timerBonus = 0.5;
+    timerBonus = 100;
     dt = random(0.1, 5);
+    dtBonus = 0;
     a = 0;
     da = random(-0.5, -0.3);    
     aBlue = TWO_PI;
@@ -40,7 +41,6 @@ class Square {
   void draw()
   {
     blue = 140 * (1+sin(aBlue));
-
     if (!on) return;
     fill(red, green, blue, timer);
     pushMatrix();
@@ -73,10 +73,9 @@ class Square {
     green = constrain(green, 100, 240);
     blue = constrain(blue, 100, 240);
 
-    //decay transparency
+    //square transparency decay
     timer -= dt;
     timerBonus -= dtBonus;
-
 
     //reverse square vy when it hits floor/ceiling
     if (y > height-w || y < w)
@@ -85,6 +84,8 @@ class Square {
     }
 
     // When square exits screen, re-initialize
+    //x + 601 is to ensure reinitialization if 
+    //freak collision sends it in positive x direction
     if (x < 0 || x > width+601 || timer < 0) {
       on = false;
     }

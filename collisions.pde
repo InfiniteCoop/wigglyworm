@@ -34,11 +34,11 @@ void collisions()
         squares[j].dt = 30;
         squares[j].w += 20;
         squares[j].timerBonus = 100;
-        squares[j].dtBonus = 0.5;
+        squares[j].dtBonus = 1;
         fill((squares[j].timerBonus));
         textAlign(CENTER);
         textFont(font, 45);
-        text("+100", (mouseX), (mouseY));
+        text("+100!", (mouseX), (mouseY));
 
         for (int i=0; i<nJoints; i++)
         {
@@ -49,29 +49,15 @@ void collisions()
   }
 
   //check for collisions between balls and explosive triangles
-  if (dist(mouseX, mouseY, triangle.x, triangle.y) <= triangle.l*2)
-  {
-    //play bloop sound
-    bloop1.play();
-    bloop1.rewind();
+  if (dist(mouseX, mouseY, triangle.x, triangle.y) <= triangle.l*2 && triangle.timer == 255)
+  {  
 
+    //trigger explosion behavior (see Triangle class) 
     triangle.explode = true;
 
-    //temporarily swell worm joints
-    for (int i=0; i<nJoints; i++)
-    {
-      joints[i].r += 0.5;
-    }
-
-    triangle.timer = 100;
-    triangle.dt = 10;
-    triangle.l += 30;
-    triangle.timerBonus = 100;
-    triangle.dtBonus = 0.5;
-    fill((triangle.timerBonus));
-    textAlign(CENTER);
-    textFont(font, 45);
-    text("KAPLOW!", (mouseX), (mouseY));
+    //play bloop sound
+    bloop3.play();
+    bloop3.rewind();
   }
 }
 

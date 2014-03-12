@@ -1,8 +1,12 @@
-//In this game, the player uses the mouse to contro Timmy the Tapeworm.
-//The longer that Timmy evades the red antibiotics, the more points he gains...however, 
-//the antibiotics gradually multiply and move faster and faster, and Timmy grows longer 
-//and longer, making survival progressively more difficult.
-//Timmy can also snack on green nutrients to gain bonus points.
+/********************************
+ 
+ In this game, the player uses the mouse to contro Timmy the Tapeworm.
+ The longer that Timmy evades the red antibiotics, the more points he gains...however, 
+ the antibiotics gradually multiply and move faster and faster, and Timmy grows longer 
+ and longer, making survival progressively more difficult.
+ Timmy can also snack on green nutrients to gain bonus points.
+ 
+ ********************************/
 
 //import sound library
 import ddf.minim.*;
@@ -27,6 +31,7 @@ int scoreUpdateJoints;
 //create font for menus and score
 PFont font;
 PFont fontTitle;
+PFont fontBonus;
 color fontColor;
 
 //starting number of balls
@@ -53,8 +58,8 @@ Triangle triangle = new Triangle();
 Minim minim;
 
 //Instantiate various sound effects, soundtrack
-AudioPlayer bloop1, bloop2, bloop3;
-AudioPlayer pop1;
+AudioPlayer bloop1, bloop3;
+AudioPlayer pop1, pop2;
 AudioPlayer gameOver;
 AudioPlayer soundtrack;
 
@@ -84,11 +89,18 @@ void setup()
 
   //sound initialization
   minim = new Minim(this);
+
   bloop1 = minim.loadFile("audio/bloop1.mp3");
   bloop1.setGain(20);
 
+  bloop3 = minim.loadFile("audio/bloop3.mp3");
+  bloop3.setGain(30);
+
   pop1 = minim.loadFile("audio/pop1.mp3");
   pop1.setGain(20);
+
+  pop2 = minim.loadFile("audio/pop2.mp3");
+  pop2.setGain(30);
 
   gameOver = minim.loadFile("audio/gameover.mp3");
   gameOver.setGain(-10);
@@ -103,10 +115,9 @@ void setup()
 
   bl = new BeatListener(beat, soundtrack);
 
-
+  //load sound on/off icons
   speakerOn = loadImage("speakerOn.png");
   speakerOff = loadImage("speakerOff.png");
-
 
 
   //initialize the game (function follows)
@@ -198,16 +209,20 @@ void keyPressed() {
     {
       soundtrack.unmute();
       bloop1.unmute();
+      bloop3.unmute();
       pop1.unmute();
+      pop2.unmute();
       gameOver.unmute();
     } 
     else {
       soundtrack.mute();
       bloop1.mute();
+      bloop3.mute();
       pop1.mute();
+      pop2.mute();
       gameOver.mute();
-
     }
     muted = !muted;
   }
 }
+

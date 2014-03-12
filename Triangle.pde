@@ -1,14 +1,13 @@
 class Triangle {
   float x, y;   // current position
   float vx, vy;  // velocity
-  float l;   //side length
+  float l;   //triangle side length
   float timer;   // time left before triangle disappears
   float timerBonus;  //time left before "KAPLOW!" message disappears
   float dt;  // extinguishing speed
   float a; //rotation angle
   float da; //rotation rate 
   float dtBonus;  //text extinguishing speed
-  float spring = 0.05; //ball springiness (for collisions)
   boolean on = false;
   boolean explode = false;
 
@@ -20,21 +19,21 @@ class Triangle {
   {
     on = true;
     explode = false;
-    x = random(width+800, width+800); 
+    x = random(width*2, width*3); 
     y = random(0, height);
-    l = 10;
     vx = random(-12, -8); 
-    vy = random(-2, 2);
+    vy = random(-4, 4);
+    l = 10;
     timer = 255;
-    timerBonus = 0.5;
-    dt = random(0.1, 1);
+    dt = 20;
+    timerBonus = 255;
+    dtBonus = 1;
     a = 0;
     da = random(-0.25, -0.05);
   }
 
   void draw()
   {
-
     if (!on) return;
     fill(200, 200, 0, timer);
     pushMatrix();
@@ -60,30 +59,43 @@ class Triangle {
     //rotate triangles
     a += da;
 
-    //decay transparency
-    timerBonus -= dtBonus;
-
-    //reverse square vy when it hits floor/ceiling
-    if (y > height- l || y < l)
+    //reverse triangle vy when it hits floor/ceiling
+    if (y > height-l || y < l)
     {
       vy = -vy;
     }
 
-    // When square exits screen or becomes invisible, re-initialize
-    if (x < 0-l || timer < 0) {
+    // When triangle exits screen or becomes invisible, re-initialize
+    if (x < 0-l || timer < 20) {
       on = false;
     }
 
-    if (explode = true)
+    if (explode == true)
     {
-      //trigger explosive behavior
+      //trigger triangle appearance change
+      l += 20;
+      timerBonus -= dtBonus;
+      timer -= dt;
+
+      //destroy any balls that touch triangle
       for (int i=0; i<nBalls; i++)
       {
-        if (dist(triangle.x, triangle.y, balls[i].x, balls[i].y) <triangle.l)
+        if (dist(triangle.x, triangle.y, balls[i].x, balls[i].y) < triangle.l*2 && triangle.timer > 40)
         {
-          pop1.play();
-          pop1.rewind();
+          pop2.play();
+          pop2.rewind();
+
+          //remove ball (it will be reinitialized)
           balls[i].on = false;
+
+          //print message
+          fill((triangle.timerBonus));
+          textAlign(CENTER);
+          textFont(font, 45);
+          text("+100!", balls[i].x, balls[i].y);
+
+          //update score
+          score += 100;
         }
       }
     }
