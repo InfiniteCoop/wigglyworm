@@ -37,7 +37,7 @@ void collisions()
         squares[j].dtBonus = 1;
         fill((squares[j].timerBonus));
         textAlign(CENTER);
-        textFont(font, 45);
+        textFont(fontBonus);
         text("+100!", (mouseX), (mouseY));
 
         for (int i=0; i<nJoints; i++)

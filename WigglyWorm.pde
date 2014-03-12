@@ -1,10 +1,17 @@
 /********************************
+ Cooper Thomas
+ Professor Casey
+ Final Project, Computer Science 2
+ 12 March 2013
  
- In this game, the player uses the mouse to contro Timmy the Tapeworm.
+ In this game, the player uses the mouse to control Timmy the Tapeworm.
  The longer that Timmy evades the red antibiotics, the more points he gains...however, 
- the antibiotics gradually multiply and move faster and faster, and Timmy grows longer 
+ the antibiotics gradually multiply in number, and Timmy grows longer 
  and longer, making survival progressively more difficult.
- Timmy can also snack on green nutrients to gain bonus points.
+ 
+ Timmy can snack on green nutrients (squares) to gain bonus points. He can also "explode" 
+ the orange probiotics (triangles), which destroy any antibiotics in their immediate
+ vicinity, granting additional bonus points.
  
  ********************************/
 
@@ -83,8 +90,8 @@ void setup()
   //font initialization
   font = createFont("ArialRoundedMTBold.vlw", 20);
   fontTitle = createFont("BirchStd.vlw", 20);
-  fontColor = color(0, random(100, 255), random(100, 240));
-  textFont(font);
+  fontColor = color(0, random(100, 255), random(100, 240));  
+  fontBonus = createFont("BadaBoomBB-48.vlw", 48);
   textAlign(CENTER);
 
   //sound initialization
@@ -94,13 +101,13 @@ void setup()
   bloop1.setGain(20);
 
   bloop3 = minim.loadFile("audio/bloop3.mp3");
-  bloop3.setGain(30);
+  bloop3.setGain(40);
 
   pop1 = minim.loadFile("audio/pop1.mp3");
   pop1.setGain(20);
 
   pop2 = minim.loadFile("audio/pop2.mp3");
-  pop2.setGain(30);
+  pop2.setGain(40);
 
   gameOver = minim.loadFile("audio/gameover.mp3");
   gameOver.setGain(-10);

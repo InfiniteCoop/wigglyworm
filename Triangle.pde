@@ -91,7 +91,7 @@ class Triangle {
           //print message
           fill((triangle.timerBonus));
           textAlign(CENTER);
-          textFont(font, 45);
+          textFont(fontBonus);
           text("+100!", balls[i].x, balls[i].y);
 
           //update score
