@@ -1,3 +1,6 @@
+//This class analyses the soundtrack audio file,
+//and listens for beat
+
 class BeatListener implements AudioListener
 {
   private BeatDetect beat;

@@ -37,26 +37,32 @@ int nJoints;
 boolean muted = false;
 int gain;
 
-//Timmy can have up to 12 total joints, but he starts with just 6
+//Create up to 12 joints, but begin with just 6 (see gameInit) 
 WormJoint[] joints = new WormJoint[12];
 
-//the 10 antibiotics automatically regenerate once they leave the screen
+//Create up to 100 balls, but begin with just 10
 Ball[] balls = new Ball[100];
 
+//Create 8 bonus squares
 Square[] squares = new Square[8];
 
+//Create 1 explosive triangle
 Triangle triangle = new Triangle();
 
+//Import audio library
 Minim minim;
 
+//Instantiate various sound effects, soundtrack
 AudioPlayer bloop1, bloop2, bloop3;
 AudioPlayer pop1;
 AudioPlayer gameOver;
 AudioPlayer soundtrack;
 
+//Instantiate beat detection objects
 BeatDetect beat;
 BeatListener bl;
 
+//Instantiate sound on/off PNG icons (drawn in Illustrator)
 PImage speakerOn;
 PImage speakerOff;
 
