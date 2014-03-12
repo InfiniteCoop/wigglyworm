@@ -57,7 +57,7 @@ class Ball {
     }
 
     // When ball exits screen, re-initialize
-    if (x < 0 || timer < 20) {
+    if (x < 0) {
       on = false;
     }
 
