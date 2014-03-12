@@ -21,6 +21,7 @@ int gameState;
 int score;
 int hiScore;
 int scoreUpdateBalls;
+int scoreUpdateTriangles;
 int scoreUpdateJoints;
 
 //create font for menus and score
@@ -43,6 +44,8 @@ WormJoint[] joints = new WormJoint[12];
 Ball[] balls = new Ball[100];
 
 Square[] squares = new Square[8];
+
+Triangle[] triangles = new Triangle[3];
 
 Minim minim;
 
@@ -190,11 +193,14 @@ void keyPressed() {
       soundtrack.unmute();
       bloop1.unmute();
       pop1.unmute();
+      gameOver.unmute();
     } 
     else {
       soundtrack.mute();
       bloop1.mute();
       pop1.mute();
+      gameOver.mute();
+
     }
     muted = !muted;
   }

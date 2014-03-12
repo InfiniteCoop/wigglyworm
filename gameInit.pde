@@ -26,4 +26,9 @@ void gameInit()
   for (int i=0; i<squares.length; i++) {
     squares[i] = new Square();
   }
+  
+    // Create the explosive bacterial triangle
+  for (int i=0; i<triangles.length; i++) {
+    triangles[i] = new Triangle();
+  }
 }
