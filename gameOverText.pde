@@ -3,7 +3,7 @@ void gameOverText()
     
   //display "GAME OVER" messages
     textAlign(CENTER);
-    fill(245,60,0);
+    fill(245,20,0);
 
     textFont(fontBonus, 60);
     text("You killed Timmy!", (width/2), (height/2) - 40);
