@@ -3,13 +3,13 @@ void gameOverText()
     
   //display "GAME OVER" messages
     textAlign(CENTER);
-    fill(fontColor);
+    fill(245,60,0);
 
-    textFont(font, 40);
+    textFont(fontBonus, 60);
     text("You killed Timmy!", (width/2), (height/2) - 40);
     fill(255);
     textFont(font, 20);
-    text("Click anywhere to restart game", width/2, height/2);
+    text("Click anywhere to restart game", width/2, height/2 + 20);
 
     //display score in left corner
     textAlign(LEFT);

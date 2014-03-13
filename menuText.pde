@@ -3,8 +3,8 @@ void menuText ()
   //display start messages
   textAlign(CENTER);
   fill(fontColor);
-  textFont(fontTitle, 60);
-  text("WIGGLY WORM", width/2, height/2 - 80);
+  textFont(fontBonus, 100);
+  text("WIGGLY WORM", width/2, height/2 - 60);
 
   textFont(font, 16);
   fill(255);

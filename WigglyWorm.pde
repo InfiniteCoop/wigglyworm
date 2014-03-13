@@ -37,7 +37,6 @@ int scoreUpdateJoints;
 
 //create font for menus and score
 PFont font;
-PFont fontTitle;
 PFont fontBonus;
 color fontColor;
 
@@ -88,9 +87,8 @@ void setup()
   noStroke();
 
   //initialize the different fonts
-//  font = createFont("ArialRoundedMTBold.vlw", 20);
-//  fontTitle = createFont("BirchStd.vlw", 20);
-  font = createFont("BadaBoomBB-48.vlw", 48);
+  font = createFont("ArialRoundedMTBold.vlw", 20);
+  fontBonus = createFont("BadaBoomBB", 48);
 
   fontColor = color(0, random(100, 255), random(100, 240));  
   textAlign(CENTER);
