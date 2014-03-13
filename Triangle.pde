@@ -27,7 +27,7 @@ class Triangle {
     l = 10;
     timer = 255;
     dt = 20;
-    timerBonus = 255;
+    timerBonus = 100;
     dtBonus = 1;
     a = 0;
     da = random(-0.25, -0.05);
