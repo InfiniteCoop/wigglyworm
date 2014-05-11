@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>WigglyWormV1_1 : Built with Processing and Processing.js</title>
-		<link rel="icon"  type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQAAVzABAEAjBQAaDwYAWjUGAGE6CQBrQQ0ATS8PAFhAJwBUQC8AbFI6AHVXPACBZk4A4NrWAPb19QAAAAAAAMmZmZmZmgAJIwAAAAAAcMIjPjA+PjAKpxIuMDMzMAm0Ii4zMzMACaIiLt3dMAAJtyIuIzPQAAm0Un5yM+IzKLRkfncy4iIotRF+dyLkIiq0QX53F+EiGrQUTkd34iIatEVu7u5iIVrBVVRBRFRVbAtGZGZla2uwAMu7u7u8vADAAwAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA" />
+		<title>WigglyWorm : Built with Processing and Processing.js</title>
 		<meta name="Generator" content="Processing" />
 		<!-- - - - - - - - - - - - - - - - - - - - - 
 		+
@@ -12,6 +11,8 @@
 		+    and: http://processingjs.org/
 		+
 		+ - - - - - - - - - - - - - - - - - - - - -->
+		<script src="processing.js" type="text/javascript"></script>
+		<script src="minim.js" type="text/javascript"></script>
 		<style type="text/css">
 	body {
 	  background-color: #333; color: #bbb; line-height: normal;
@@ -49,14 +50,14 @@
 		<script src="processing.js" type="text/javascript"></script>
 		<script type="text/javascript">
 // convenience function to get the id attribute of generated sketch html element
-function getProcessingSketchId () { return 'WigglyWormV11'; }
+function getProcessingSketchId () { return 'WigglyWorm'; }
 </script>
 
 	</head>
 	<body>
 		<div id="content">
 			<div>
-				<canvas id="WigglyWormV11" data-processing-sources="WigglyWormV1_1.pde" 
+				<canvas id="WigglyWorm" data-processing-sources="WigglyWorm.pde" 
 						width="800" height="450">
 					<p>Your browser does not support the canvas tag.</p>
 					<!-- Note: you can put any alternative content here. -->
@@ -65,9 +66,16 @@ function getProcessingSketchId () { return 'WigglyWormV11'; }
 					<p>JavaScript is required to view the contents of this page.</p>
 				</noscript>
 	    	</div>
-			<h1>WigglyWormV1_1</h1>
-    		<p id="description"></p>
-			<p id="sources">Source code: <a href="WigglyWormV1_1.pde">WigglyWormV1_1</a> </p>
+			<h1>WigglyWorm</h1>
+    		<p id="description">In this game, the player uses the mouse to control Timmy the Tapeworm.
+ The longer that Timmy evades the red antibiotics, the more points he gains...however, 
+ the antibiotics gradually multiply in number, and Timmy grows longer 
+ and longer, making survival progressively more difficult.
+ 
+ Timmy can snack on green nutrients (squares) to gain bonus points. He can also "explode" 
+ the orange probiotics (triangles), which destroy any antibiotics in their immediate
+ vicinity, granting additional bonus points.</p>
+			<p id="sources">Source code: <a href="WigglyWorm.pde">WigglyWorm</a> <a href="minim.js">minim.js</a> </p>
 			<p>
 			Built with <a href="http://processing.org" title="Processing">Processing</a>
 			and <a href="http://processingjs.org" title="Processing.js">Processing.js</a>

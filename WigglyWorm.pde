@@ -1,17 +1,13 @@
 /********************************
- Cooper Thomas
- Professor Casey
- Final Project, Computer Science 2
- 12 March 2013
- 
- In this game, the player uses the mouse to control Timmy the Tapeworm.
- The longer that Timmy evades the red antibiotics, the more points he gains...however, 
- the antibiotics gradually multiply in number, and Timmy grows longer 
+
+ Use the mouse to control Timmy the Tapeworm.
+ The longer that Timmy evades the red antibiotics, the more points he gains...
+ But the antibiotics gradually multiply in number, and Timmy grows longer 
  and longer, making survival progressively more difficult.
  
- Timmy can snack on green nutrients (squares) to gain bonus points. He can also "explode" 
- the orange probiotics (triangles), which destroy any antibiotics in their immediate
- vicinity, granting additional bonus points.
+ Timmy can snack on green nutrients (squares) to gain bonus points. 
+ He can also "explode" the orange probiotics (triangles), which destroy any antibiotics 
+ in their immediate vicinity, granting additional bonus points.
  
  ********************************/
 
